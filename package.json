@@ -1,0 +1,17 @@
+{
+  "name": "lambdas-golang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serverless offline start -t",
+    "build:healthcheck": "set GOOS=linux&& set GOARCH=amd64&& go build -o bin/healthcheck global/apps/healthcheck/main.go"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-auto-swagger": "^3.1.0",
+    "serverless-offline": "^14.4.0"
+  }
+}

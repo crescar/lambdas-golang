@@ -1,0 +1,25 @@
+service: lambdas-golang
+
+plugins:
+  #- serverless-auto-swagger
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: go1.x
+  region: us-east-1
+  timeout: 30
+
+package:
+  individually: true
+
+functions:
+  healthcheck:
+    handler: bin/healthcheck
+    package:
+      include:
+        - ./bin/healthcheck
+    events:
+      - http:
+          path: /healthcheck
+          method: get
